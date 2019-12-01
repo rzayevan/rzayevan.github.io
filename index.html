@@ -2,9 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nara Rzayeva</title>
+    <title>CPSC 583: Tutorial 2</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />   <!-- link the CSS file to style this page -->
+    <!-- the order of how you link scripts matter
+    -- i.e., you can only call functions from scripts loaded before
+    -- the script you are calling to. In this case, we want to call
+    -- functions from the D3 library in our own javascript file,
+    -- hence, the D3.js library appears above our own script.
+    -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>       <!-- link directly to the D3.js script online -->
+    <script type="text/javascript" src="radial_plot.js"></script>
+    <script type="text/javascript" src="heat_map.js"></script>
+    <script type="text/javascript" src="parallel_coordinates.js"></script>
+    <script type="text/javascript" src="main.js"></script>      <!-- link the javascript file -->
 </head>
-<body>
-<h1>Site under construction. Come back soon!</h1>
+<body class="grid">
+<div>
+    <h1>Dashboard: Variation 2</h1>
+</div>
+<div id="div_visuals" class="grid">
+    <div id="container_vis1" class="grid">
+        <div id="title_vis1">
+            <div id="title_text_vis1" class="title_text">Total Average Stats by Evolution</div>
+            <button id="collapse_button" onclick="onButtonClick()">Expand</button>
+        </div>
+        <svg id="vis1" class="svg_boxes"></svg>
+        <div id="expand_div" style="display: none">
+        </div>
+
+    </div>
+    <div id="container_vis2" class="grid">
+        <div id="title_vis2">
+            Special Stats Average Total (Sp. Atk + Sp. Def) by Type Pairing
+        </div>
+        <svg id="vis2" class="svg_boxes"></svg>
+    </div>
+    <div id="container_vis3" class="grid">
+        <div id="title_vis3">
+             <div id="title_text_vis3" class="title_text">Relationship Between Non-Special Stats</div>
+            <div  style="display: inline;
+    float: right;">
+                <input id="search_input" type="text" placeholder="Enter a Pokémon name...">
+                <button id="search_button" class="search_button" onclick="onSearchClicked()">Search</button>
+            </div>
+
+        </div>
+
+        <div style="height: 100%">
+            <svg id="vis3" style="width: 75%; height: 100%; display: inline; float: left;" class="svg_boxes"></svg>
+            <div style="width: 20%; float: right; height: 100%">
+                <svg id="search_results" style="height: 90%;"></svg>
+                <button id="reset_button" onclick="onResetClicked()">Reset</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 </body>
 </html>
