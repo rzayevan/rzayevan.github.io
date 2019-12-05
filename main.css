@@ -86,7 +86,7 @@ button {
 
 .search_button
 {
-    margin-top: 4px;
+    margin-top: 2px;
 }
 
 div[id^=container_vis] {
@@ -115,9 +115,14 @@ g > text {
     color: black;
 }
 
-.pc_lines path {
+.foreground path {
     fill: none;
-    stroke: #69b3a2;
+    stroke: #5fa08f;
+}
+
+.background path {
+    fill: none;
+    stroke: #dfdfdf;
 }
 
 .axis text.axis_title {
@@ -125,7 +130,7 @@ g > text {
     cursor: move;
 }
 
-.pc_lines path:hover{
+.foreground path:hover{
     stroke:red;
     stroke-width: 2.5px;
     opacity: 0.5;

@@ -28,6 +28,9 @@ function loadHeatMap(svg, height, width, base_data, top_margin, bottom_margin, l
         return 0;
     });
 
+    var allTypesNoEmptyType = allTypes.slice(0);
+    allTypesNoEmptyType.shift();
+
     // Build X scales and axis:
     var x = d3.scaleBand()
         .range([ left_margin, width * 0.95 ])
@@ -77,6 +80,7 @@ function loadHeatMap(svg, height, width, base_data, top_margin, bottom_margin, l
         .domain([0, maxAvg]);
 
 
+    var curr_selection;
 
     // Add the squares
     svg.selectAll()
@@ -94,16 +98,26 @@ function loadHeatMap(svg, height, width, base_data, top_margin, bottom_margin, l
                 .duration(200)
                 .style("opacity", .9);
 
-            var type = "";
-            type += d["Type 1"];
-            if (type !== "" && d["Type 1"] !== d["Type 2"]) {
-                type += " & " + d["Type 2"];
+            let type = "", t1 = d["Type 1"], t2 = d["Type 2"]
+            if (t1) {
+                type += t1;
+
+                if (t2) {
+                    if (t1 !== t2)
+                        type += " & " + d["Type 2"];
+                    else
+                        type = "N/A";
+                }
             }
-            if (type === "") {
-                type += "None"
+            else {
+                if (t2)
+                    type += t2;
+                else
+                    type = "N/A"
             }
 
-            tooltipDiv.html("Type: " + type + "<br/>Total Average Special Stats: " + d["Special Stats Avg"])
+            let tooltipStr = type === "N/A" ? "Axis of Reflection" : "Type: " + type + "<br/>Total Average Special Stats: " + d["Special Stats Avg"];
+            tooltipDiv.html(tooltipStr)
                 .style("left", (d3.event.pageX + 5) + "px")
                 .style("top", (d3.event.pageY + 5) + "px");
         })
@@ -114,6 +128,90 @@ function loadHeatMap(svg, height, width, base_data, top_margin, bottom_margin, l
             tooltipDiv.transition()
                 .duration(500)
                 .style("opacity", 0);
+        })
+        .on('click', function(d) {
+            if (d["Special Stats Avg"] > 0) {
+                let pcPathClasses = ".pc_line";
+                let t1 = d["Type 1"], t2 = d["Type 2"];
+
+                var arrDiff = (arr1, arr2) => {
+                    return arr1.filter(x => !arr2.includes(x));
+                }
+
+                var generateSelectorForSingleType = (typeStr) => {
+                    pcPathClasses += "." + typeStr;
+                    let otherTypes = arrDiff(allTypesNoEmptyType, [typeStr]);
+                    otherTypes.forEach((val, idx) => {
+                        pcPathClasses += ":not(." + val + ")"
+                    })
+                }
+
+                if (t1 && !t2) {
+                    generateSelectorForSingleType(t1);
+                }
+                else if (!t1 && t2) {
+                    generateSelectorForSingleType(t2);
+                }
+                else {
+                    pcPathClasses += "." + t1 + "." + t2;
+                }
+
+                let pc_paths_match = d3.select(".foreground").selectAll(pcPathClasses);
+
+                if ((pc_paths_match !== undefined)&&(pc_paths_match._groups[0][0] !== null)) {
+                    let select = (elem) => {
+                        pc_paths_match.classed("hm_match", true);
+
+                        let pc_paths_disabled = d3.select(".foreground").selectAll(".pc_line:not(.hm_match)");
+
+                        let cssTextStr = elem.style.cssText;
+                        let fillSubStr = cssTextStr.substring(
+                            cssTextStr.lastIndexOf(":") + 2,
+                            cssTextStr.lastIndexOf(";")
+                        );
+
+                        let init_state = {
+                            elem: elem,
+                            fill: fillSubStr,
+                            pcMatchedPaths: pc_paths_match,
+                            pcDisabledPaths: pc_paths_disabled,
+                            selected: true
+                        }
+
+                        curr_selection = init_state;
+
+                        let rgb = fillSubStr.match(/\d+/g).map(Number);
+
+                        let newRgbStr = "rgb(" + rgb[0] + ", " + (rgb[1] - 150) + ", " + rgb[2] + ")";
+                        console.log(newRgbStr);
+                        elem.style.fill = newRgbStr;
+                        pc_paths_disabled.style("display", "none");
+
+                        let pc_selection_check = d3.select(".foreground").select(".pc_selected").node();
+                        if (pc_selection_check && !(pc_paths_match.nodes().includes(pc_selection_check))) {
+                            onResetClicked();
+                        }
+                    };
+
+                    // If there is a current selection, disable that selection first
+                    if (curr_selection) {
+                        curr_selection.elem.style.fill = curr_selection.fill;
+                        curr_selection.pcDisabledPaths.style("display", "block");
+                        curr_selection.pcMatchedPaths.classed("hm_match", false);
+
+                        if (curr_selection.elem !== this) {
+                            select(this);
+                        }
+                        else {
+                            curr_selection = undefined;
+                        }
+                    }
+                    else {
+                        select(this);
+                    }
+                }
+            }
+
         });
 
     // Append a defs (for definition) element to the SVG
