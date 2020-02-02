@@ -1,0 +1,192 @@
+html {
+    /* background: #271E6F; */
+    min-width: 1280px;
+    min-height: 720px;
+    overflow: auto;
+
+    font-family: sans-serif;
+    font-weight: 300;
+    color: white;
+    letter-spacing: 0.1em;
+    height: 100%;
+}
+
+.selected {
+    border: solid;
+    border-width: thin;
+    padding: 10px;
+    border-radius: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.nav-list {
+    list-style-type: none;
+    margin-top: 50;
+    margin-left: 50px;
+    padding: 0;
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+}
+
+p {
+    font-family: 'Fjalla One', sans-serif;
+}
+
+li {
+    display: inline;
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+}
+
+/* index.html */
+#index_body {
+    background: #271E6F;
+    background-image: url('./assets/astro.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    height: 100%;
+    padding-top: 10px;
+}
+
+#title1 {
+    text-transform: uppercase;
+    margin-left: 50px;
+    margin-top: 140px;
+    font-size: 2em;
+
+}
+
+#title2 {
+    text-transform: uppercase;
+    margin-left: 50px;
+    margin-top: 50px;
+    font-size: 5em;
+}
+
+blockquote {
+    max-width: 500px;;
+}
+
+/* what.html */
+#what_body {
+    background: #271E6F;
+    background-image: url('./assets/mars_cool.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    height: 100%;
+    padding-top: 10px;
+}
+
+.what_page_header_colour {
+    color: #FEA736;
+}
+
+#mars_p1 {
+    max-width: 250px;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+}
+
+#mars_p2 {
+    max-width: 800px;
+    position: absolute;
+    left: 40%;
+    top: 40%;
+}
+
+/* how.html */
+#how_body {
+    background: #271E6F;
+    background-image: url('./assets/planets.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    height: 100%;
+    padding-top: 10px;
+}
+
+iframe {
+    display: block;
+    margin: auto;
+    margin-top: 150px;
+}
+
+/* when.html */
+#when {
+    background: #CD3D58;
+    background-image: url('./assets/mars_colonization.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    height: 100%;
+    padding-top: 10px;
+}
+
+#year {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#year2 {
+    text-align: center;
+    margin-top: 10px;
+    color: #0CFFE1;
+}
+
+#nasa_link {
+    color: #0CFFE1;
+    border-bottom: thin;
+    border: solid;
+    padding: 5px;
+}
+
+/* why.html */
+#why {
+    background: #271E6F;
+    background-image: url('./assets/mars.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    height: 100%;
+    padding-top: 10px;
+}
+
+.why_page_header_colour {
+    color: rgb(170, 142, 142);
+}
+
+#mars_p3 {
+    position: absolute;
+    top: 70%;
+    margin-left: 50px;
+}
+
+#mission_logs {
+    margin-left: 50px;
+}
+
+th {
+    text-align: start;
+}
+
+td {
+    border-style: solid;
+    border-width: 2px;
+    font-family: 'Fjalla One', sans-serif;
+}
