@@ -1,32 +1,40 @@
 $(document).ready(function(){
+    // Reset state of calculator before we begin
     let evalText = "";
     $("#display-old-text").hide();
     $("#display-text").css("font-size", "30px");
 
-    // Non-special button actions
+    // Non-special button (ones that should be written to display) actions
     $(".nonspecial").click(function(){
         let currentText = $("#display-text").html();
-        let x = $(this).html();
+        let currButtonText = $(this).html();
 
-        if (currentText === "0" || currentText === "ERROR" || currentText === "Infinity") {
-            $("#display-text").html(x);
-            evalText = $(this).attr("data-value");
-        } else if (currentText.length < 25) {
-            $("#display-text").append(x);
-            evalText += $(this).attr("data-value");
+        // If 0 is shown, allow operations on it
+        if($(this).hasClass("ops") && currentText === "0") {
+            $("#display-text").append(currButtonText);
+            evalText = "0" + $(this).attr("data-value");
+        } else {
+            // Overwrite unusable contents of the screen and shorten text
+            if (currentText === "0" || currentText === "ERROR" || currentText === "Infinity") {
+                $("#display-text").html(currButtonText);
+                evalText = $(this).attr("data-value");
+            } else if (currentText.length < 25) {
+                $("#display-text").append(currButtonText);
+                evalText += $(this).attr("data-value");
+            }
         }
     });
 
-    // Clear button action
+    // Clear (C) button action
     $("#cBtn").click(function(){
         $("#display-old-text").html("");
-        $("#display-text").html("");
-        evalText = "";
+        $("#display-text").html("0");
+        evalText = 0;
         $("#display-old-text").hide();
         $("#display-text").css("font-size", "30px");
     });
 
-    // Clear entry button function
+    // Clear entry (CE) button function
     $("#ceBtn").click(function(){
         evalText = evalText.substring(0, evalText.length - 1);
         if (evalText === "" || evalText === "ERRO" || evalText === "Infinit") {
@@ -35,19 +43,26 @@ $(document).ready(function(){
         $("#display-text").html(evalText);
     });
 
-    // Equal button action
+    // Equal (=) button action
     $("#equalBtn").click(function(){
-        console.log(evalText.length);
-        let result = "Something went reallyyyy wrong";
+        let result = "Something went reallyyyy wrong"; // should never be shown
+
+        // evaluate the expression
         try {
             result = eval(evalText);
         } catch {
             result = "ERROR"
         }
+
+        // place calculation above as "history"
         $("#display-old-text").css("color", "grey");
         $("#display-old-text").html(evalText.replace(/\*/gi, "x") + " = " + result);
         $("#display-old-text").show();
+
+        // set the result font to be smaller
         $("#display-text").css("font-size", "20px");
+
+        // display the result
         $("#display-text").html(result);
         evalText = result.toString();
     });

@@ -11,45 +11,59 @@
     <link rel="stylesheet" href="site.css"> <!-- CSS file link -->
     <title>Futuristic Calculator</title> <!-- Website title -->
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Orbitron&display=swap" rel="stylesheet"> <!-- Fonts -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- setting viewport -->
   </head>
   <body>
     <div id="calculator">
+      <!-- Calculator display -->
       <div id="display">
         <div id="texts">
           <p id="display-old-text">Old text</p>
           <p id="display-text">0</p>
         </div>
       </div>
+
+      <!-- Calculator keypad -->
       <table id="keypad">
+
+        <!-- First row -->
         <tr>
-          <td><button data-value="(" id="leftBracketBtn" class="buttonClass  nonspecial">(</button></td>
-          <td><button data-value=")" id="rightBracketBtn" class="buttonClass  nonspecial">)</button></td>
-          <td><button data-value="C" id="cBtn" class="buttonClass">C</button></td>
+          <td><button data-value="("  id="leftBracketBtn" class="buttonClass  nonspecial">(</button></td>
+          <td><button data-value=")"  id="rightBracketBtn" class="buttonClass  nonspecial">)</button></td>
+          <td><button data-value="C"  id="cBtn" class="buttonClass">C</button></td>
           <td><button data-value="CE" id="ceBtn" class="buttonClass">CE</button></td>
         </tr>
+
+        <!-- Second row -->
         <tr>
-          <td><button data-value="7" id="sevenBtn" class="buttonClass nonspecial">7</button></td>
-          <td><button data-value="8" id="eightBtn" class="buttonClass nonspecial">8</button></td>
-          <td><button data-value="9" id="nineBtn" class="buttonClass nonspecial">9</button></td>
-          <td><button data-value="/" id="divideBtn" class="buttonClass nonspecial">/</button></td>
+          <td><button data-value="7"  id="sevenBtn" class="buttonClass nonspecial">7</button></td>
+          <td><button data-value="8"  id="eightBtn" class="buttonClass nonspecial">8</button></td>
+          <td><button data-value="9"  id="nineBtn" class="buttonClass nonspecial">9</button></td>
+          <td><button data-value="/"  id="divideBtn" class="buttonClass nonspecial ops">/</button></td>
         </tr>
+
+        <!-- Third row -->
         <tr>
-          <td><button data-value="4" id="fourBtn" class="buttonClass nonspecial">4</button></td>
-          <td><button data-value="5" id="fiveBtn" class="buttonClass nonspecial">5</button></td>
-          <td><button data-value="6" id="sixBtn" class="buttonClass nonspecial">6</button></td>
-          <td><button data-value="*" id="multiplyBtn" class="buttonClass nonspecial">x</button></td>
+          <td><button data-value="4"  id="fourBtn" class="buttonClass nonspecial">4</button></td>
+          <td><button data-value="5"  id="fiveBtn" class="buttonClass nonspecial">5</button></td>
+          <td><button data-value="6"  id="sixBtn" class="buttonClass nonspecial">6</button></td>
+          <td><button data-value="*"  id="multiplyBtn" class="buttonClass nonspecial ops">x</button></td>
         </tr>
+
+        <!-- Fourth row -->
         <tr>
-          <td><button data-value="1" id="oneBtn" class="buttonClass nonspecial">1</button></td>
-          <td><button data-value="2" id="twoBtn" class="buttonClass nonspecial">2</button></td>
-          <td><button data-value="3" id="threeBtn" class="buttonClass nonspecial">3</button></td>
-          <td><button data-value="-" id="subtractBtn" class="buttonClass nonspecial">-</button></td>
+          <td><button data-value="1"  id="oneBtn" class="buttonClass nonspecial">1</button></td>
+          <td><button data-value="2"  id="twoBtn" class="buttonClass nonspecial">2</button></td>
+          <td><button data-value="3"  id="threeBtn" class="buttonClass nonspecial">3</button></td>
+          <td><button data-value="-"  id="subtractBtn" class="buttonClass nonspecial ops">-</button></td>
         </tr>
+
+        <!-- Fifth row -->
         <tr>
-          <td><button data-value="0" id="zeroBtn" class="buttonClass nonspecial">0</button></td>
-          <td><button data-value="." id="decPointBtn" class="buttonClass nonspecial">.</button></td>
-          <td><button data-value="=" id="equalBtn" class="buttonClass">=</button></td>
-          <td><button data-value="+" id="addBtn" class="buttonClass nonspecial">+</button></td>
+          <td><button data-value="0"  id="zeroBtn" class="buttonClass nonspecial">0</button></td>
+          <td><button data-value="."  id="decPointBtn" class="buttonClass nonspecial ops">.</button></td>
+          <td><button data-value="="  id="equalBtn" class="buttonClass">=</button></td>
+          <td><button data-value="+"  id="addBtn" class="buttonClass nonspecial">+</button></td>
         </tr>
       </table>
     </div>
