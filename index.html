@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Nara Rzayeva</title>
+		<title></title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -15,7 +15,7 @@
 
 		<!-- Header -->
 			<header id="header">
-				<div class="logo"><a href="#">Nara Rzayeva <span></span></a></div>
+				<div class="logo"><a href="#">Nara Rzayeva and Nadhif Satriana<span></span></a></div>
 			</header>
 
 		<!-- Main -->
@@ -32,79 +32,85 @@
 							  </video>
 						</div>
 						<header class="special">
-							<h2>Moody Woody</h2>
-							<p>CPSC 599 Assignment 1</p>
+							<h2>The Tell-Tale Heart</h2>
+							<p>CPSC 599 Assignment 3</p>
 						</header>
 						<div class="content">
-							<p>Moody Woody is a friendly Arduino bot who is confused about his emotions most of the time. Since he is shy and can't communicate his feelings, his friends can use switches in order to get insight into his emotions. This project has been inspired by Woody Herman’s album which contains beautiful musical pieces that leaves the person relating to Moody Woody bot.</p>
-							<p>There are several components that Moody Woody has which make him special. He uses a 4x5 matrix of LEDs in order to display his emotions to his friends. However, his shyness prevents his friends from emotionally supporting him since they don’t know what Moody Woody is feeling. Luckily, Moody Woody has 2 buttons on each side of the LED Matrix that triggers the display of his emotions onto the matrix. Pressing on the left button will allow his friends to see Moody Woody’s happy emotions whilst pressing on the right button will reveal his sad emotions. If you really want to confuse Moody Woody, you can try pressing on both buttons at the same time which will display a poker face.</p>
+							<p>There are a lot of things that we do subconsciously that we do not even realize. One of them is pumping blood around the body, via the heart. A person’s heart rate can tell a lot of stories; whether they are nervous, excited, or close to death. So why not let people see this personal data of theirs, quite literally, in the flesh.</p>
+							<p>Using a heart rate/pulse sensor and servo motors, we built a mechanism that replicates a person’s heart. The servo will spin accordingly to your heartbeat which in turn would move the mechanism in order to simulate a beating heart. You can feel your heart beating at the palm of your hands.</p>
+							<p>We thought that a person’s heart rate is a really cool personal data as it is live and can be affected in numerous ways. As for visualizing it, we thought why not make a replica of your own heart. After all, it is much better than having to cut someone open to see a beating heart</p>
 						</div>
 					</section>
 
 				<!-- Three -->
 					<section id="three" class="wrapper">
 						<div class="spotlight">
-							<div class="image flush"><img src="images/MoodyWoody_bb.png" alt="" /></div>
+							<div class="image flush"><img src="images/heart_schematic.png" alt="" /></div>
 							<div class="inner">
 								<h3>Circuit Schematic</h3>
-								<p>The diagram has been created using Fritzing application and outlines sensor connections. The file can be downloaded from <a href="images/MoodyWoody.fzz" download="MoodyWoodyProject.fzz">here.</a></p>
+								<p>The diagram has been created using Fritzing application and outlines sensor connections.</p>
 							</div>
 						</div>
 						<div class="spotlight alt">
-							<div class="image flush"><img src="images/materials.jpg" alt="" /></div>
+							<div class="image flush"><img src="images/1.jpg" alt="" /></div>
 							<div  class="inner">
-								<h3>Materials</h3>
-								<p> Arduino Mega x 1</p>
-								<p> Breadboards x 1 or x2</p>
-								<p> Buttons x 2 </p>
-								<p> LEDs x 20</p>
-								<p> 220 Ohm Resistors x 10</p>
-								<p> A bunch of wires</p>
-								<p> Wire cutter/strippers x 1</p>
-								<p> Arduino USB cable x 1</p>
-								<p> Laptop x 1</p>
+								<h3>Initial sketches of the idea</h3>
 							</div>
 						</div>
 						<div class="spotlight">
-							<div class="image flush"><img src="images/build1.jpg" alt="" /></div>
+							<div class="image flush"><img src="images/2.jpg" alt="" /></div>
 							<div class="inner">
-								<h3>Assembly #1</h3>
-								<p>Make a 4x5 matrix of LEDs that are divided in the breadboard equally.</p>
-								<p>Add resistors to the lower half of the matrix</p>
-								<p>Test the LEDs by plugging them into power (5V).</p>
+								<h3>Assembly #1:</h3>
+								<h3>Integrating Heart Rate Sensor</h3>
+								<p>We've first tested the sensor with servos attached to make sure it was capable of turning 3 servos at a time.</p>
 							</div>
 						</div>
 						<div class="spotlight alt">
-							<div class="image flush"><img src="images/build2.jpg" alt="" /></div>
+							<div class="image flush"><img src="images/5.jpg" alt="" /></div>
 							<div  class="inner">
-								<h3>Assembly #2</h3>
-								<p> After successful completion of the previous step, add the remaining resistors to the other half.</p>
-								<p> Test the LEDs by plugging them into power (5V).</p>
-								<p>Add buttons</p>
-								<p>As the last step, connect the LEDs into the board in order to be controlled individually.</p>
+								<h3>Assembly #2:</h3>
+								<h3>Building Heart Mechanism</h3>
+								<p>With the use of 3D printed parts, the servos were then integrated to the mechanism.</p>
 							</div>
 						</div>
 						<div class="spotlight">
-							<div class="image flush"><img src="./images/finished.jpg" alt="" /></div>
+							<div class="image flush"><img src="images/pre_pre_final.jpg" alt="" /></div>
+							<div  class="inner">
+								<h3>Assembly #3:</h3>
+								<h3>Integration</h3>
+								<p>Heart rate sensor and the mechanism were then integrated together to test the final design.</p>
+							</div>
+						</div>
+						<div class="spotlight alt">
+							<div class="image flush"><img src="images/pre_final.jpg" alt="" /></div>
+							<div  class="inner">
+								<h3>Assembly #4:</h3>
+								<h3>Securing the mechanism</h3>
+								<p>Finally, heart panels were added to secure the mechanism in place.</p>
+							</div>
+						</div>
+						<div class="spotlight">
+							<div class="image flush"><img src="./images/final.jpg" alt="" /></div>
 							<div class="inner">
 								<h3>Finished project</h3>
+								<p>Final touches were made in terms of design and a cardboard box was used to hide the electrical components.</p>
 							</div>
 						</div>
 						<div class="spotlight alt">
 							<div class="image flush"><img src="https://wallpaperaccess.com/full/1154055.jpg" alt="" /></div>
 							<div class="inner">
 								<h3>Code</h3>
-								<p> Coding has been done with the help of Arduino IDE. The code can be downloaded from <a href="images/MoodyWoodyProject.zip" download="MoodyWoodyProject.zip">here.</a></p>
+								<p> Coding has been done with the help of Arduino IDE. The code can be downloaded from <a href="images/heart_rate.zip" download="heart_rate.zip">here.</a></p>
 							</div>
 						</div>
 						<div class="spotlight">
 							<div class="image flush"><img src="https://image.freepik.com/free-photo/toolbox-hammer-gloves-wooden-background_23-2147865448.jpg" alt="" /></div>
 							<div class="inner">
 								<h3>Reference Materials</h3>
-								<h6>Moody Woody Album</h6>
-								<p>https://open.spotify.com/album/5cQHw0xcuevouPxQIbNhCQ</p>
-								<h6>Other Arduino Projects</h6>
-								<p>https://circuitdigest.com/arduino-projects</p>
+								<h6>Grove Heart Rate Sensor Documentation</h6>
+								<p>http://wiki.seeedstudio.com/Grove-Ear-clip_Heart_Rate_Sensor/</p>
+								<h6>Animatronic Heart Files</h6>
+								<p>http://www.nilheim.co.uk/latest-projects-and-blog/animatronic-heart-files</p>
 							</div>
 						</div>
 					</section>
